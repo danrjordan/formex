@@ -114,24 +114,10 @@ CMakeFiles/formex.dir/src/Printer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/formex.dir/src/Printer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/danj/gitrepos/formex/src/Printer.cpp -o CMakeFiles/formex.dir/src/Printer.cpp.s
 
-CMakeFiles/formex.dir/src/main.cpp.o: CMakeFiles/formex.dir/flags.make
-CMakeFiles/formex.dir/src/main.cpp.o: /Users/danj/gitrepos/formex/src/main.cpp
-CMakeFiles/formex.dir/src/main.cpp.o: CMakeFiles/formex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/danj/gitrepos/formex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/formex.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/formex.dir/src/main.cpp.o -MF CMakeFiles/formex.dir/src/main.cpp.o.d -o CMakeFiles/formex.dir/src/main.cpp.o -c /Users/danj/gitrepos/formex/src/main.cpp
-
-CMakeFiles/formex.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/formex.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/danj/gitrepos/formex/src/main.cpp > CMakeFiles/formex.dir/src/main.cpp.i
-
-CMakeFiles/formex.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/formex.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/danj/gitrepos/formex/src/main.cpp -o CMakeFiles/formex.dir/src/main.cpp.s
-
 CMakeFiles/formex.dir/src/Simplifier.cpp.o: CMakeFiles/formex.dir/flags.make
 CMakeFiles/formex.dir/src/Simplifier.cpp.o: /Users/danj/gitrepos/formex/src/Simplifier.cpp
 CMakeFiles/formex.dir/src/Simplifier.cpp.o: CMakeFiles/formex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/danj/gitrepos/formex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/formex.dir/src/Simplifier.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/danj/gitrepos/formex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/formex.dir/src/Simplifier.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/formex.dir/src/Simplifier.cpp.o -MF CMakeFiles/formex.dir/src/Simplifier.cpp.o.d -o CMakeFiles/formex.dir/src/Simplifier.cpp.o -c /Users/danj/gitrepos/formex/src/Simplifier.cpp
 
 CMakeFiles/formex.dir/src/Simplifier.cpp.i: cmake_force
@@ -142,13 +128,42 @@ CMakeFiles/formex.dir/src/Simplifier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/formex.dir/src/Simplifier.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/danj/gitrepos/formex/src/Simplifier.cpp -o CMakeFiles/formex.dir/src/Simplifier.cpp.s
 
+CMakeFiles/formex.dir/src/Differentiator.cpp.o: CMakeFiles/formex.dir/flags.make
+CMakeFiles/formex.dir/src/Differentiator.cpp.o: /Users/danj/gitrepos/formex/src/Differentiator.cpp
+CMakeFiles/formex.dir/src/Differentiator.cpp.o: CMakeFiles/formex.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/danj/gitrepos/formex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/formex.dir/src/Differentiator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/formex.dir/src/Differentiator.cpp.o -MF CMakeFiles/formex.dir/src/Differentiator.cpp.o.d -o CMakeFiles/formex.dir/src/Differentiator.cpp.o -c /Users/danj/gitrepos/formex/src/Differentiator.cpp
+
+CMakeFiles/formex.dir/src/Differentiator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/formex.dir/src/Differentiator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/danj/gitrepos/formex/src/Differentiator.cpp > CMakeFiles/formex.dir/src/Differentiator.cpp.i
+
+CMakeFiles/formex.dir/src/Differentiator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/formex.dir/src/Differentiator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/danj/gitrepos/formex/src/Differentiator.cpp -o CMakeFiles/formex.dir/src/Differentiator.cpp.s
+
+CMakeFiles/formex.dir/src/main.cpp.o: CMakeFiles/formex.dir/flags.make
+CMakeFiles/formex.dir/src/main.cpp.o: /Users/danj/gitrepos/formex/src/main.cpp
+CMakeFiles/formex.dir/src/main.cpp.o: CMakeFiles/formex.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/danj/gitrepos/formex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/formex.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/formex.dir/src/main.cpp.o -MF CMakeFiles/formex.dir/src/main.cpp.o.d -o CMakeFiles/formex.dir/src/main.cpp.o -c /Users/danj/gitrepos/formex/src/main.cpp
+
+CMakeFiles/formex.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/formex.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/danj/gitrepos/formex/src/main.cpp > CMakeFiles/formex.dir/src/main.cpp.i
+
+CMakeFiles/formex.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/formex.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/danj/gitrepos/formex/src/main.cpp -o CMakeFiles/formex.dir/src/main.cpp.s
+
 # Object files for target formex
 formex_OBJECTS = \
 "CMakeFiles/formex.dir/src/Lexer.cpp.o" \
 "CMakeFiles/formex.dir/src/Parser.cpp.o" \
 "CMakeFiles/formex.dir/src/Printer.cpp.o" \
-"CMakeFiles/formex.dir/src/main.cpp.o" \
-"CMakeFiles/formex.dir/src/Simplifier.cpp.o"
+"CMakeFiles/formex.dir/src/Simplifier.cpp.o" \
+"CMakeFiles/formex.dir/src/Differentiator.cpp.o" \
+"CMakeFiles/formex.dir/src/main.cpp.o"
 
 # External object files for target formex
 formex_EXTERNAL_OBJECTS =
@@ -156,11 +171,12 @@ formex_EXTERNAL_OBJECTS =
 formex: CMakeFiles/formex.dir/src/Lexer.cpp.o
 formex: CMakeFiles/formex.dir/src/Parser.cpp.o
 formex: CMakeFiles/formex.dir/src/Printer.cpp.o
-formex: CMakeFiles/formex.dir/src/main.cpp.o
 formex: CMakeFiles/formex.dir/src/Simplifier.cpp.o
+formex: CMakeFiles/formex.dir/src/Differentiator.cpp.o
+formex: CMakeFiles/formex.dir/src/main.cpp.o
 formex: CMakeFiles/formex.dir/build.make
 formex: CMakeFiles/formex.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/danj/gitrepos/formex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable formex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/danj/gitrepos/formex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable formex"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/formex.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -11,6 +11,7 @@ add_executable(formex
     src/Lexer.cpp
     src/Parser.cpp
     src/Printer.cpp
-    src/main.cpp
     src/Simplifier.cpp
+    src/Differentiator.cpp
+    src/main.cpp
 )

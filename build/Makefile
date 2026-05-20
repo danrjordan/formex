@@ -129,6 +129,30 @@ formex/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/build
 .PHONY : formex/fast
 
+src/Differentiator.o: src/Differentiator.cpp.o
+.PHONY : src/Differentiator.o
+
+# target to build an object file
+src/Differentiator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Differentiator.cpp.o
+.PHONY : src/Differentiator.cpp.o
+
+src/Differentiator.i: src/Differentiator.cpp.i
+.PHONY : src/Differentiator.i
+
+# target to preprocess a source file
+src/Differentiator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Differentiator.cpp.i
+.PHONY : src/Differentiator.cpp.i
+
+src/Differentiator.s: src/Differentiator.cpp.s
+.PHONY : src/Differentiator.s
+
+# target to generate assembly for a file
+src/Differentiator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Differentiator.cpp.s
+.PHONY : src/Differentiator.cpp.s
+
 src/Lexer.o: src/Lexer.cpp.o
 .PHONY : src/Lexer.o
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... formex"
+	@echo "... src/Differentiator.o"
+	@echo "... src/Differentiator.i"
+	@echo "... src/Differentiator.s"
 	@echo "... src/Lexer.o"
 	@echo "... src/Lexer.i"
 	@echo "... src/Lexer.s"

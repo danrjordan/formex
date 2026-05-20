@@ -1,3 +1,4 @@
+#include "formex/Differentiator.h"
 #include "formex/Lexer.h"
 #include "formex/Parser.h"
 #include "formex/Printer.h"
@@ -6,10 +7,7 @@
 
 int main() {
   std::vector<std::string> tests = {
-      "x + 0",
-      "x * 0 + 3",
-      "x^2 + 3*x",
-      "x + y * z",
+      "x + 0", "x * 1", "x * 0", "x + x", "x^2", "x^3 + x", "x * x",
   };
 
   for (const auto &input : tests) {
@@ -17,7 +15,13 @@ int main() {
     auto tokens = lexer.tokenise();
     Parser parser(tokens);
     auto tree = parser.constructTree();
-    std::cout << input << " => " << prettyPrint(simplify(tree)) << "\n";
+    auto simplified = simplify(tree);
+    auto [result, steps] = differentiate(simplified, "x");
+
+    std::cout << "d/dx(" << input << ") =>\n";
+    for (const auto &step : steps)
+      std::cout << "  " << step << "\n";
+    std::cout << "  = " << prettyPrint(result) << "\n\n";
   }
 
   return 0;

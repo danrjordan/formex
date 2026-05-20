@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/formex.dir/src/Differentiator.cpp.o"
+  "CMakeFiles/formex.dir/src/Differentiator.cpp.o.d"
   "CMakeFiles/formex.dir/src/Lexer.cpp.o"
   "CMakeFiles/formex.dir/src/Lexer.cpp.o.d"
   "CMakeFiles/formex.dir/src/Parser.cpp.o"
