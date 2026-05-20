@@ -1,0 +1,3 @@
+/Users/danj/gitrepos/formex/build/CMakeFiles/formex.dir
+/Users/danj/gitrepos/formex/build/CMakeFiles/edit_cache.dir
+/Users/danj/gitrepos/formex/build/CMakeFiles/rebuild_cache.dir
