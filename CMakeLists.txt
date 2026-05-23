@@ -7,6 +7,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include_directories(include)
 
+find_package(ftxui REQUIRED)
+
 add_executable(formex
     src/Lexer.cpp
     src/Parser.cpp
@@ -14,4 +16,11 @@ add_executable(formex
     src/Simplifier.cpp
     src/Differentiator.cpp
     src/main.cpp
+    src/Ui.cpp
+)
+
+target_link_libraries(formex PRIVATE
+    ftxui::screen
+    ftxui::dom
+    ftxui::component
 )
