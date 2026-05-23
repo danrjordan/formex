@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/danj/gitrepos/formex/src/Parser.cpp" "CMakeFiles/formex.dir/src/Parser.cpp.o" "gcc" "CMakeFiles/formex.dir/src/Parser.cpp.o.d"
   "/Users/danj/gitrepos/formex/src/Printer.cpp" "CMakeFiles/formex.dir/src/Printer.cpp.o" "gcc" "CMakeFiles/formex.dir/src/Printer.cpp.o.d"
   "/Users/danj/gitrepos/formex/src/Simplifier.cpp" "CMakeFiles/formex.dir/src/Simplifier.cpp.o" "gcc" "CMakeFiles/formex.dir/src/Simplifier.cpp.o.d"
+  "/Users/danj/gitrepos/formex/src/Ui.cpp" "CMakeFiles/formex.dir/src/Ui.cpp.o" "gcc" "CMakeFiles/formex.dir/src/Ui.cpp.o.d"
   "/Users/danj/gitrepos/formex/src/main.cpp" "CMakeFiles/formex.dir/src/main.cpp.o" "gcc" "CMakeFiles/formex.dir/src/main.cpp.o.d"
   )
 

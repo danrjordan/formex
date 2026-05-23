@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/formex.dir/src/Printer.cpp.o.d"
   "CMakeFiles/formex.dir/src/Simplifier.cpp.o"
   "CMakeFiles/formex.dir/src/Simplifier.cpp.o.d"
+  "CMakeFiles/formex.dir/src/Ui.cpp.o"
+  "CMakeFiles/formex.dir/src/Ui.cpp.o.d"
   "CMakeFiles/formex.dir/src/main.cpp.o"
   "CMakeFiles/formex.dir/src/main.cpp.o.d"
   "formex"

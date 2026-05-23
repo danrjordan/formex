@@ -1,38 +1,44 @@
 [
 {
   "directory": "/Users/danj/gitrepos/formex/build",
-  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Lexer.cpp.o -c /Users/danj/gitrepos/formex/src/Lexer.cpp",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Lexer.cpp.o -c /Users/danj/gitrepos/formex/src/Lexer.cpp",
   "file": "/Users/danj/gitrepos/formex/src/Lexer.cpp",
   "output": "CMakeFiles/formex.dir/src/Lexer.cpp.o"
 },
 {
   "directory": "/Users/danj/gitrepos/formex/build",
-  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Parser.cpp.o -c /Users/danj/gitrepos/formex/src/Parser.cpp",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Parser.cpp.o -c /Users/danj/gitrepos/formex/src/Parser.cpp",
   "file": "/Users/danj/gitrepos/formex/src/Parser.cpp",
   "output": "CMakeFiles/formex.dir/src/Parser.cpp.o"
 },
 {
   "directory": "/Users/danj/gitrepos/formex/build",
-  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Printer.cpp.o -c /Users/danj/gitrepos/formex/src/Printer.cpp",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Printer.cpp.o -c /Users/danj/gitrepos/formex/src/Printer.cpp",
   "file": "/Users/danj/gitrepos/formex/src/Printer.cpp",
   "output": "CMakeFiles/formex.dir/src/Printer.cpp.o"
 },
 {
   "directory": "/Users/danj/gitrepos/formex/build",
-  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Simplifier.cpp.o -c /Users/danj/gitrepos/formex/src/Simplifier.cpp",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Simplifier.cpp.o -c /Users/danj/gitrepos/formex/src/Simplifier.cpp",
   "file": "/Users/danj/gitrepos/formex/src/Simplifier.cpp",
   "output": "CMakeFiles/formex.dir/src/Simplifier.cpp.o"
 },
 {
   "directory": "/Users/danj/gitrepos/formex/build",
-  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Differentiator.cpp.o -c /Users/danj/gitrepos/formex/src/Differentiator.cpp",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Differentiator.cpp.o -c /Users/danj/gitrepos/formex/src/Differentiator.cpp",
   "file": "/Users/danj/gitrepos/formex/src/Differentiator.cpp",
   "output": "CMakeFiles/formex.dir/src/Differentiator.cpp.o"
 },
 {
   "directory": "/Users/danj/gitrepos/formex/build",
-  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/main.cpp.o -c /Users/danj/gitrepos/formex/src/main.cpp",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/main.cpp.o -c /Users/danj/gitrepos/formex/src/main.cpp",
   "file": "/Users/danj/gitrepos/formex/src/main.cpp",
   "output": "CMakeFiles/formex.dir/src/main.cpp.o"
+},
+{
+  "directory": "/Users/danj/gitrepos/formex/build",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Ui.cpp.o -c /Users/danj/gitrepos/formex/src/Ui.cpp",
+  "file": "/Users/danj/gitrepos/formex/src/Ui.cpp",
+  "output": "CMakeFiles/formex.dir/src/Ui.cpp.o"
 }
 ]

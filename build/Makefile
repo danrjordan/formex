@@ -249,6 +249,30 @@ src/Simplifier.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Simplifier.cpp.s
 .PHONY : src/Simplifier.cpp.s
 
+src/Ui.o: src/Ui.cpp.o
+.PHONY : src/Ui.o
+
+# target to build an object file
+src/Ui.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Ui.cpp.o
+.PHONY : src/Ui.cpp.o
+
+src/Ui.i: src/Ui.cpp.i
+.PHONY : src/Ui.i
+
+# target to preprocess a source file
+src/Ui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Ui.cpp.i
+.PHONY : src/Ui.cpp.i
+
+src/Ui.s: src/Ui.cpp.s
+.PHONY : src/Ui.s
+
+# target to generate assembly for a file
+src/Ui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Ui.cpp.s
+.PHONY : src/Ui.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -297,6 +321,9 @@ help:
 	@echo "... src/Simplifier.o"
 	@echo "... src/Simplifier.i"
 	@echo "... src/Simplifier.s"
+	@echo "... src/Ui.o"
+	@echo "... src/Ui.i"
+	@echo "... src/Ui.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
