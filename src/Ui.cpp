@@ -1,7 +1,13 @@
 #include "formex/Ui.h"
+#include "formex/Differentiator.h"
+#include "formex/Lexer.h"
+#include "formex/Parser.h"
+#include "formex/Printer.h"
+#include "formex/Simplifier.h"
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
 #include <ftxui/dom/elements.hpp>
+#include <string>
 
 using namespace ftxui;
 
@@ -11,12 +17,8 @@ void runUi() {
   std::string input;
   auto inputComponent = Input(&input, "enter expression...");
 
-  std::vector<std::string> steps = {
-      "input: x^2 - 5x + 6",
-      "apply power rule",
-      "simplify",
-  };
-  std::string result = "2*x";
+  std::vector<Step> steps;
+  std::string result;
 
   auto workingPanel = [&] {
     Elements rows;
@@ -25,12 +27,19 @@ void runUi() {
     for (size_t i = 0; i < steps.size(); i++) {
       rows.push_back(hbox({
           text(std::to_string(i + 1) + "  ") | dim | color(Color::Green),
-          text(steps[i]) | color(Color::Green),
+          text(steps[i].rule) | color(Color::Green),
       }));
+      if (!steps[i].expr.empty()) {
+        rows.push_back(hbox({
+            text("    "),
+            text(steps[i].expr) | dim | color(Color::RGB(100, 150, 100)),
+            text(" -> ") | dim | color(Color::Green),
+            text(steps[i].result) | color(Color::RGB(255, 165, 0)),
+        }));
+      }
     }
     return vbox(rows) | flex;
   };
-
   auto resultPanel = [&] {
     return vbox({
                text("RESULT") | dim | color(Color::Green),
@@ -65,5 +74,23 @@ void runUi() {
            bgcolor(Color::RGB(18, 18, 18));
   });
 
-  screen.Loop(root);
+  auto app = CatchEvent(root, [&](Event event) {
+    if (event == Event::Return) {
+      Lexer lexer(input);
+      auto tokens = lexer.tokenise();
+      Parser parser(tokens);
+      auto tree = parser.constructTree();
+      auto [diffResult, diffSteps] = differentiate(tree, "x");
+      auto simplified = simplify(diffResult);
+
+      steps = diffSteps;
+      steps.insert(steps.begin(), Step{"input: " + input, ""});
+      result = prettyPrint(simplified);
+      input.clear();
+      return true;
+    }
+    return false;
+  });
+
+  screen.Loop(app);
 }
