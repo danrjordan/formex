@@ -17,6 +17,7 @@ add_executable(formex
     src/Differentiator.cpp
     src/main.cpp
     src/Ui.cpp
+    src/Evaluator.cpp
 )
 
 target_link_libraries(formex PRIVATE

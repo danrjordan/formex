@@ -40,5 +40,11 @@
   "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Ui.cpp.o -c /Users/danj/gitrepos/formex/src/Ui.cpp",
   "file": "/Users/danj/gitrepos/formex/src/Ui.cpp",
   "output": "CMakeFiles/formex.dir/src/Ui.cpp.o"
+},
+{
+  "directory": "/Users/danj/gitrepos/formex/build",
+  "command": "/usr/bin/c++  -I/Users/danj/gitrepos/formex/include -isystem /opt/homebrew/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/formex.dir/src/Evaluator.cpp.o -c /Users/danj/gitrepos/formex/src/Evaluator.cpp",
+  "file": "/Users/danj/gitrepos/formex/src/Evaluator.cpp",
+  "output": "CMakeFiles/formex.dir/src/Evaluator.cpp.o"
 }
 ]

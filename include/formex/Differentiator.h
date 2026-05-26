@@ -15,4 +15,5 @@ struct DiffResult {
   std::vector<Step> steps;
 };
 
+ExprPtr clone(const ExprPtr &expr);
 DiffResult differentiate(const ExprPtr &, const std::string &);

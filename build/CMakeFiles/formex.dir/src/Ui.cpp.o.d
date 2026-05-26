@@ -874,6 +874,7 @@ CMakeFiles/formex.dir/src/Ui.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__locale_dir/locale_base_api/bsd_locale_defaults.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
+  /Users/danj/gitrepos/formex/include/formex/Evaluator.h \
   /Users/danj/gitrepos/formex/include/formex/Lexer.h \
   /Users/danj/gitrepos/formex/include/formex/Parser.h \
   /Users/danj/gitrepos/formex/include/formex/Printer.h \

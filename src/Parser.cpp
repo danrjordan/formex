@@ -1,4 +1,5 @@
 #include "formex/Parser.h"
+#include <stdexcept>
 #include <unordered_map>
 
 const std::unordered_map<TokenType, int> bindingPower = {{TokenType::PLUS, 1},
@@ -7,11 +8,17 @@ const std::unordered_map<TokenType, int> bindingPower = {{TokenType::PLUS, 1},
                                                          {TokenType::SLASH, 2},
                                                          {TokenType::CARET, 3}};
 
-Parser::Parser(std::vector<Token> &tokenList) { this->tokenList = tokenList; currToken = 0; }
+Parser::Parser(std::vector<Token> &tokenList) {
+  this->tokenList = tokenList;
+  currToken = 0;
+}
 
 ExprPtr Parser::constructTree() { return parseExpr(0); }
 
 ExprPtr Parser::parseExpr(int minBP) {
+  if (currToken >= tokenList.size())
+    throw std::runtime_error("unexpected end of input");
+
   Token left = tokenList[currToken++];
   ExprPtr leftNode;
 
@@ -19,6 +26,8 @@ ExprPtr Parser::parseExpr(int minBP) {
     leftNode = std::make_unique<Number>(std::stod(left.value));
   } else if (left.type == TokenType::IDENT) {
     leftNode = std::make_unique<Symbol>(left.value);
+  } else {
+    throw std::runtime_error("unexpected token: " + left.value);
   }
 
   while (currToken < tokenList.size()) {

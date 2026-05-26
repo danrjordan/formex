@@ -153,6 +153,30 @@ src/Differentiator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Differentiator.cpp.s
 .PHONY : src/Differentiator.cpp.s
 
+src/Evaluator.o: src/Evaluator.cpp.o
+.PHONY : src/Evaluator.o
+
+# target to build an object file
+src/Evaluator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Evaluator.cpp.o
+.PHONY : src/Evaluator.cpp.o
+
+src/Evaluator.i: src/Evaluator.cpp.i
+.PHONY : src/Evaluator.i
+
+# target to preprocess a source file
+src/Evaluator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Evaluator.cpp.i
+.PHONY : src/Evaluator.cpp.i
+
+src/Evaluator.s: src/Evaluator.cpp.s
+.PHONY : src/Evaluator.s
+
+# target to generate assembly for a file
+src/Evaluator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Evaluator.cpp.s
+.PHONY : src/Evaluator.cpp.s
+
 src/Lexer.o: src/Lexer.cpp.o
 .PHONY : src/Lexer.o
 
@@ -309,6 +333,9 @@ help:
 	@echo "... src/Differentiator.o"
 	@echo "... src/Differentiator.i"
 	@echo "... src/Differentiator.s"
+	@echo "... src/Evaluator.o"
+	@echo "... src/Evaluator.i"
+	@echo "... src/Evaluator.s"
 	@echo "... src/Lexer.o"
 	@echo "... src/Lexer.i"
 	@echo "... src/Lexer.s"
