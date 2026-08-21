@@ -35,6 +35,16 @@ ExprPtr Parser::parseExpr(int minBP) {
     if (op.type == TokenType::END)
       break;
 
+    bool implicitMul = (op.type == TokenType::IDENT || op.type == TokenType::NUMBER);
+    if (implicitMul) {
+      if (2 <= minBP)
+        break;
+      ExprPtr rightNode = parseExpr(2);
+      leftNode = std::make_unique<BinOp>(TokenType::STAR, std::move(leftNode),
+                                         std::move(rightNode));
+      continue;
+    }
+
     auto it = bindingPower.find(op.type);
     if (it == bindingPower.end() || it->second <= minBP)
       break;

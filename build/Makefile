@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/danj/gitrepos/formex/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/opt/homebrew/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -117,6 +127,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named formex_core
+
+# Build rule for target.
+formex_core: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 formex_core
+.PHONY : formex_core
+
+# fast build rule for target.
+formex_core/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/build
+.PHONY : formex_core/fast
+
+#=============================================================================
 # Target rules for targets named formex
 
 # Build rule for target.
@@ -129,12 +152,51 @@ formex/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/build
 .PHONY : formex/fast
 
+#=============================================================================
+# Target rules for targets named formex_tests
+
+# Build rule for target.
+formex_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 formex_tests
+.PHONY : formex_tests
+
+# fast build rule for target.
+formex_tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/formex_tests.dir/build.make tests/CMakeFiles/formex_tests.dir/build
+.PHONY : formex_tests/fast
+
+#=============================================================================
+# Target rules for targets named Catch2
+
+# Build rule for target.
+Catch2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Catch2
+.PHONY : Catch2
+
+# fast build rule for target.
+Catch2/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2.dir/build
+.PHONY : Catch2/fast
+
+#=============================================================================
+# Target rules for targets named Catch2WithMain
+
+# Build rule for target.
+Catch2WithMain: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Catch2WithMain
+.PHONY : Catch2WithMain
+
+# fast build rule for target.
+Catch2WithMain/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build
+.PHONY : Catch2WithMain/fast
+
 src/Differentiator.o: src/Differentiator.cpp.o
 .PHONY : src/Differentiator.o
 
 # target to build an object file
 src/Differentiator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Differentiator.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Differentiator.cpp.o
 .PHONY : src/Differentiator.cpp.o
 
 src/Differentiator.i: src/Differentiator.cpp.i
@@ -142,7 +204,7 @@ src/Differentiator.i: src/Differentiator.cpp.i
 
 # target to preprocess a source file
 src/Differentiator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Differentiator.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Differentiator.cpp.i
 .PHONY : src/Differentiator.cpp.i
 
 src/Differentiator.s: src/Differentiator.cpp.s
@@ -150,39 +212,15 @@ src/Differentiator.s: src/Differentiator.cpp.s
 
 # target to generate assembly for a file
 src/Differentiator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Differentiator.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Differentiator.cpp.s
 .PHONY : src/Differentiator.cpp.s
-
-src/Evaluator.o: src/Evaluator.cpp.o
-.PHONY : src/Evaluator.o
-
-# target to build an object file
-src/Evaluator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Evaluator.cpp.o
-.PHONY : src/Evaluator.cpp.o
-
-src/Evaluator.i: src/Evaluator.cpp.i
-.PHONY : src/Evaluator.i
-
-# target to preprocess a source file
-src/Evaluator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Evaluator.cpp.i
-.PHONY : src/Evaluator.cpp.i
-
-src/Evaluator.s: src/Evaluator.cpp.s
-.PHONY : src/Evaluator.s
-
-# target to generate assembly for a file
-src/Evaluator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Evaluator.cpp.s
-.PHONY : src/Evaluator.cpp.s
 
 src/Lexer.o: src/Lexer.cpp.o
 .PHONY : src/Lexer.o
 
 # target to build an object file
 src/Lexer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Lexer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Lexer.cpp.o
 .PHONY : src/Lexer.cpp.o
 
 src/Lexer.i: src/Lexer.cpp.i
@@ -190,7 +228,7 @@ src/Lexer.i: src/Lexer.cpp.i
 
 # target to preprocess a source file
 src/Lexer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Lexer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Lexer.cpp.i
 .PHONY : src/Lexer.cpp.i
 
 src/Lexer.s: src/Lexer.cpp.s
@@ -198,7 +236,7 @@ src/Lexer.s: src/Lexer.cpp.s
 
 # target to generate assembly for a file
 src/Lexer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Lexer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Lexer.cpp.s
 .PHONY : src/Lexer.cpp.s
 
 src/Parser.o: src/Parser.cpp.o
@@ -206,7 +244,7 @@ src/Parser.o: src/Parser.cpp.o
 
 # target to build an object file
 src/Parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Parser.cpp.o
 .PHONY : src/Parser.cpp.o
 
 src/Parser.i: src/Parser.cpp.i
@@ -214,7 +252,7 @@ src/Parser.i: src/Parser.cpp.i
 
 # target to preprocess a source file
 src/Parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Parser.cpp.i
 .PHONY : src/Parser.cpp.i
 
 src/Parser.s: src/Parser.cpp.s
@@ -222,7 +260,7 @@ src/Parser.s: src/Parser.cpp.s
 
 # target to generate assembly for a file
 src/Parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Parser.cpp.s
 .PHONY : src/Parser.cpp.s
 
 src/Printer.o: src/Printer.cpp.o
@@ -230,7 +268,7 @@ src/Printer.o: src/Printer.cpp.o
 
 # target to build an object file
 src/Printer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Printer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Printer.cpp.o
 .PHONY : src/Printer.cpp.o
 
 src/Printer.i: src/Printer.cpp.i
@@ -238,7 +276,7 @@ src/Printer.i: src/Printer.cpp.i
 
 # target to preprocess a source file
 src/Printer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Printer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Printer.cpp.i
 .PHONY : src/Printer.cpp.i
 
 src/Printer.s: src/Printer.cpp.s
@@ -246,7 +284,7 @@ src/Printer.s: src/Printer.cpp.s
 
 # target to generate assembly for a file
 src/Printer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Printer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Printer.cpp.s
 .PHONY : src/Printer.cpp.s
 
 src/Simplifier.o: src/Simplifier.cpp.o
@@ -254,7 +292,7 @@ src/Simplifier.o: src/Simplifier.cpp.o
 
 # target to build an object file
 src/Simplifier.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Simplifier.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Simplifier.cpp.o
 .PHONY : src/Simplifier.cpp.o
 
 src/Simplifier.i: src/Simplifier.cpp.i
@@ -262,7 +300,7 @@ src/Simplifier.i: src/Simplifier.cpp.i
 
 # target to preprocess a source file
 src/Simplifier.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Simplifier.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Simplifier.cpp.i
 .PHONY : src/Simplifier.cpp.i
 
 src/Simplifier.s: src/Simplifier.cpp.s
@@ -270,7 +308,7 @@ src/Simplifier.s: src/Simplifier.cpp.s
 
 # target to generate assembly for a file
 src/Simplifier.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex.dir/build.make CMakeFiles/formex.dir/src/Simplifier.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/formex_core.dir/build.make CMakeFiles/formex_core.dir/src/Simplifier.cpp.s
 .PHONY : src/Simplifier.cpp.s
 
 src/Ui.o: src/Ui.cpp.o
@@ -329,13 +367,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... Catch2"
+	@echo "... Catch2WithMain"
 	@echo "... formex"
+	@echo "... formex_core"
+	@echo "... formex_tests"
 	@echo "... src/Differentiator.o"
 	@echo "... src/Differentiator.i"
 	@echo "... src/Differentiator.s"
-	@echo "... src/Evaluator.o"
-	@echo "... src/Evaluator.i"
-	@echo "... src/Evaluator.s"
 	@echo "... src/Lexer.o"
 	@echo "... src/Lexer.i"
 	@echo "... src/Lexer.s"

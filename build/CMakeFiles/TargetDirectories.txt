@@ -1,3 +1,17 @@
+/Users/danj/gitrepos/formex/build/CMakeFiles/formex_core.dir
 /Users/danj/gitrepos/formex/build/CMakeFiles/formex.dir
+/Users/danj/gitrepos/formex/build/CMakeFiles/test.dir
 /Users/danj/gitrepos/formex/build/CMakeFiles/edit_cache.dir
 /Users/danj/gitrepos/formex/build/CMakeFiles/rebuild_cache.dir
+/Users/danj/gitrepos/formex/build/tests/CMakeFiles/formex_tests.dir
+/Users/danj/gitrepos/formex/build/tests/CMakeFiles/test.dir
+/Users/danj/gitrepos/formex/build/tests/CMakeFiles/edit_cache.dir
+/Users/danj/gitrepos/formex/build/tests/CMakeFiles/rebuild_cache.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/CMakeFiles/test.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/CMakeFiles/edit_cache.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/CMakeFiles/rebuild_cache.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/src/CMakeFiles/Catch2.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/src/CMakeFiles/test.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/src/CMakeFiles/edit_cache.dir
+/Users/danj/gitrepos/formex/build/_deps/catch2-build/src/CMakeFiles/rebuild_cache.dir
