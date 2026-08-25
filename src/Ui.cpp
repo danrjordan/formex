@@ -58,7 +58,6 @@ void runUi() {
                hbox({
                    text(" symbolic ") | color(Color::Black) |
                        bgcolor(Color::RGB(255, 165, 0)),
-                   text("  0.1ms") | dim | color(Color::Green),
                }),
            }) |
            flex;
@@ -86,8 +85,7 @@ void runUi() {
                    workingPanel() | flex,
                    separator(),
                    resultPanel() | size(ftxui::WIDTH, ftxui::EQUAL, 30),
-               }) |
-                   flex,
+               }) | flex,
                separator(),
                historyBar(),
                separator(),
@@ -95,8 +93,8 @@ void runUi() {
                    text(" SYM ") | color(Color::Black) | bgcolor(Color::Yellow),
                    text(" "),
                    inputComponent->Render() | flex,
-                   text(" Tab history  ^F factor  ^S steps ") |
-                       color(Color::Green) | dim,
+                   text(" ← → cycle history ") | color(Color::Green) |
+                       dim,
                }),
            }) |
            bgcolor(Color::RGB(18, 18, 18));

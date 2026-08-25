@@ -26,6 +26,14 @@ ExprPtr Parser::parseExpr(int minBP) {
     leftNode = std::make_unique<Number>(std::stod(left.value));
   } else if (left.type == TokenType::IDENT) {
     leftNode = std::make_unique<Symbol>(left.value);
+  } else if (left.type == TokenType::MINUS) {
+    leftNode = std::make_unique<UnaryOp>(TokenType::MINUS, parseExpr(2));
+  } else if (left.type == TokenType::LPAREN) {
+    leftNode = parseExpr(0);
+    if (currToken >= tokenList.size() ||
+        tokenList[currToken].type != TokenType::RPAREN)
+      throw std::runtime_error("expected closing parenthesis");
+    currToken++;
   } else {
     throw std::runtime_error("unexpected token: " + left.value);
   }
@@ -50,7 +58,8 @@ ExprPtr Parser::parseExpr(int minBP) {
       break;
 
     currToken++;
-    ExprPtr rightNode = parseExpr(it->second);
+    int rightBP = op.type == TokenType::CARET ? it->second - 1 : it->second;
+    ExprPtr rightNode = parseExpr(rightBP);
     leftNode = std::make_unique<BinOp>(op.type, std::move(leftNode),
                                        std::move(rightNode));
   }

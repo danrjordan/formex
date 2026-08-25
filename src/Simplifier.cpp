@@ -48,6 +48,12 @@ static ExprPtr simplifyOnce(const ExprPtr &expr) {
     return std::make_unique<BinOp>(binOp->op, std::move(left),
                                    std::move(right));
   }
+  if (auto *unaryOp = dynamic_cast<UnaryOp *>(expr.get())) {
+    ExprPtr operand = simplifyOnce(unaryOp->operand);
+    if (auto *num = dynamic_cast<Number *>(operand.get()))
+      return std::make_unique<Number>(-num->value);
+    return std::make_unique<UnaryOp>(unaryOp->op, std::move(operand));
+  }
   return nullptr;
 }
 
