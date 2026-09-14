@@ -44,7 +44,7 @@ class Lexer:
             op = _SINGLE_CHAR_TOKENS.get(curr)
             if op is not None:
                 tokens.append(Token(op, curr))
-            # unknown characters are silently ignored, matching the original lexer
+
             i += 1
 
         tokens.append(Token(TokenType.END, ""))
