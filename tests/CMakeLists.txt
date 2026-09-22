@@ -12,6 +12,7 @@ add_library(formex_test_support STATIC
     support/ExprGen.cpp
     support/TreeEqual.cpp
     support/NodeCount.cpp
+    support/Evaluator.cpp
 )
 target_include_directories(formex_test_support PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/support)
 target_link_libraries(formex_test_support PUBLIC formex_core)
