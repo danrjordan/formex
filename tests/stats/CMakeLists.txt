@@ -1,0 +1,2 @@
+add_executable(formex_stats main.cpp)
+target_link_libraries(formex_stats PRIVATE formex_core formex_test_support)
