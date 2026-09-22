@@ -35,12 +35,20 @@ static int precedence(TokenType op) {
   }
 }
 
+static std::string formatNumber(double value) {
+  if (value == static_cast<long long>(value)) {
+    return std::to_string(static_cast<long long>(value));
+  }
+  std::string s = std::to_string(value);
+  s.erase(s.find_last_not_of('0') + 1);
+  if (!s.empty() && s.back() == '.')
+    s.pop_back();
+  return s;
+}
+
 static std::string printExpr(const ExprPtr &expr, int parentPrec) {
   if (auto *num = dynamic_cast<Number *>(expr.get())) {
-    if (num->value == static_cast<int>(num->value)) {
-      return std::to_string(static_cast<int>(num->value));
-    }
-    return std::to_string(num->value);
+    return formatNumber(num->value);
   }
   if (auto *symbol = dynamic_cast<Symbol *>(expr.get())) {
     return symbol->name;
@@ -51,8 +59,14 @@ static std::string printExpr(const ExprPtr &expr, int parentPrec) {
   }
   if (auto *binOp = dynamic_cast<BinOp *>(expr.get())) {
     int prec = precedence(binOp->op);
-    std::string s = printExpr(binOp->left, prec) + getOpString(binOp->op) +
-                     printExpr(binOp->right, prec + 1);
+    std::string leftStr = printExpr(binOp->left, prec);
+    std::string rightStr = printExpr(binOp->right, prec + 1);
+    // Avoid ambiguous-looking output like "3--2" or "x+-1".
+    if ((binOp->op == TokenType::PLUS || binOp->op == TokenType::MINUS) &&
+        !rightStr.empty() && rightStr[0] == '-') {
+      rightStr = "(" + rightStr + ")";
+    }
+    std::string s = leftStr + getOpString(binOp->op) + rightStr;
     return prec < parentPrec ? "(" + s + ")" : s;
   } else {
     return "?";

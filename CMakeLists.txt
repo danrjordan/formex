@@ -12,6 +12,7 @@ add_library(formex_core STATIC
     src/Printer.cpp
     src/Simplifier.cpp
     src/Differentiator.cpp
+    src/LinearAlgebra.cpp
 )
 target_include_directories(formex_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 

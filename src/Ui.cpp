@@ -1,6 +1,7 @@
 #include "formex/Ui.h"
 #include "formex/Differentiator.h"
 #include "formex/Lexer.h"
+#include "formex/LinearAlgebra.h"
 #include "formex/Parser.h"
 #include "formex/Printer.h"
 #include "formex/Simplifier.h"
@@ -11,12 +12,15 @@
 
 using namespace ftxui;
 
+enum class Mode { Differentiator, LinearAlgebra };
+
 void runUi() {
   auto screen = ScreenInteractive::Fullscreen();
 
   std::string input;
   auto inputComponent = Input(&input, "enter expression...");
 
+  Mode mode = Mode::Differentiator;
   std::vector<Step> steps;
   std::string result;
 
@@ -24,6 +28,7 @@ void runUi() {
     std::string input;
     std::string result;
     std::vector<Step> steps;
+    Mode mode;
   };
   std::vector<HistoryEntry> history;
   int selectedHistory = 0;
@@ -50,13 +55,15 @@ void runUi() {
   };
 
   auto resultPanel = [&] {
+    std::string modeLabel =
+        mode == Mode::Differentiator ? " symbolic " : " linear algebra ";
     return vbox({
                text("RESULT") | dim | color(Color::Green),
                separator(),
                text(result) | color(Color::RGB(255, 165, 0)) | bold,
                filler(),
                hbox({
-                   text(" symbolic ") | color(Color::Black) |
+                   text(modeLabel) | color(Color::Black) |
                        bgcolor(Color::RGB(255, 165, 0)),
                }),
            }) |
@@ -80,6 +87,7 @@ void runUi() {
   };
 
   auto root = Renderer(inputComponent, [&] {
+    bool isDiff = mode == Mode::Differentiator;
     return vbox({
                hbox({
                    workingPanel() | flex,
@@ -90,10 +98,11 @@ void runUi() {
                historyBar(),
                separator(),
                hbox({
-                   text(" SYM ") | color(Color::Black) | bgcolor(Color::Yellow),
+                   text(isDiff ? " SYM " : " MAT ") | color(Color::Black) |
+                       bgcolor(isDiff ? Color::Yellow : Color::Cyan),
                    text(" "),
                    inputComponent->Render() | flex,
-                   text(" ← → cycle history ") | color(Color::Green) |
+                   text(" ← → history  Tab mode ") | color(Color::Green) |
                        dim,
                }),
            }) |
@@ -101,10 +110,16 @@ void runUi() {
   });
 
   auto app = CatchEvent(root, [&](Event event) {
+    if (event == Event::Tab) {
+      mode = mode == Mode::Differentiator ? Mode::LinearAlgebra
+                                          : Mode::Differentiator;
+      return true;
+    }
     if (event == Event::ArrowLeft && selectedHistory > 0) {
       selectedHistory--;
       steps = history[selectedHistory].steps;
       result = history[selectedHistory].result;
+      mode = history[selectedHistory].mode;
       return true;
     }
     if (event == Event::ArrowRight &&
@@ -112,17 +127,32 @@ void runUi() {
       selectedHistory++;
       steps = history[selectedHistory].steps;
       result = history[selectedHistory].result;
+      mode = history[selectedHistory].mode;
       return true;
     }
     if (event == Event::Return) {
-      try {
-        if (input.empty())
-          return true;
+      if (input.empty())
+        return true;
 
+      if (mode == Mode::LinearAlgebra) {
+        auto solveResult = solveLinear(input);
+        result = solveResult.result;
+        steps.clear();
+        steps.push_back(Step{"input: " + input, "", ""});
+        for (const auto &s : solveResult.steps)
+          steps.push_back(Step{s.rule, s.expr, s.result});
+        history.push_back({input, result, steps, mode});
+        selectedHistory = history.size() - 1;
+        input.clear();
+        return true;
+      }
+
+      try {
         Lexer lexer(input);
         auto tokens = lexer.tokenise();
         Parser parser(tokens);
         auto tree = parser.constructTree();
+        tree = simplify(tree); // fold constant subexpressions, e.g. x^(2+1)
         auto [diffResult, diffSteps] = differentiate(tree, "x");
 
         if (!diffResult) {
@@ -136,7 +166,7 @@ void runUi() {
         steps = diffSteps;
         steps.insert(steps.begin(), Step{"input: " + input, "", ""});
         result = prettyPrint(simplified);
-        history.push_back({input, result, steps});
+        history.push_back({input, result, steps, mode});
         selectedHistory = history.size() - 1;
         input.clear();
       } catch (const std::exception &e) {

@@ -13,7 +13,15 @@ Parser::Parser(std::vector<Token> &tokenList) {
   currToken = 0;
 }
 
-ExprPtr Parser::constructTree() { return parseExpr(0); }
+ExprPtr Parser::constructTree() {
+  ExprPtr result = parseExpr(0);
+  if (currToken < tokenList.size() &&
+      tokenList[currToken].type != TokenType::END) {
+    throw std::runtime_error("unexpected token: " +
+                             tokenList[currToken].value);
+  }
+  return result;
+}
 
 ExprPtr Parser::parseExpr(int minBP) {
   if (currToken >= tokenList.size())

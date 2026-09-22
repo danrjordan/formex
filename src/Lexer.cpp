@@ -1,5 +1,6 @@
 #include "formex/Lexer.h"
 #include <cctype>
+#include <stdexcept>
 
 Lexer::Lexer(const std::string &input) { this->inputStr = input; }
 
@@ -60,7 +61,8 @@ std::vector<Token> Lexer::tokenise() {
       tokens.push_back(Token{TokenType::RPAREN, ")"});
       break;
     default:
-      break;
+      throw std::runtime_error(std::string("unexpected character: '") + curr +
+                               "'");
     }
     i++;
   }

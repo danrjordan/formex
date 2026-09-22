@@ -8,6 +8,8 @@ FetchContent_MakeAvailable(Catch2)
 
 add_executable(formex_tests
     test_lexer.cpp
+    test_parser.cpp
+    test_simplifier.cpp
 )
 target_link_libraries(formex_tests PRIVATE formex_core Catch2::Catch2WithMain)
 
